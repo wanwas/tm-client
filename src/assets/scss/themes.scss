@@ -1,0 +1,27 @@
+.light {
+  --bg-img: url("https://store-images.s-microsoft.com/image/apps.46003.14259451864568504.ad5e5d07-0fbb-46ed-b9b6-a1b781645691.2ebcfa4e-172c-43d3-bf01-2d9a2a94e897?mode=scale&q=90&h=1080&w=1920")
+    center / cover no-repeat;
+  --bg-color: #ffffff;
+  --font-color: #000000;
+  --shadow: rgba(0, 0, 0, 0.3);
+  --primary: #39a3fa;
+  --hover: #eeeeee;
+  --neutral: #757575;
+  --error: rgb(250, 76, 33);
+  --success: rgb(11, 175, 6);
+  --font-color-light: whitesmoke;
+}
+
+.dark {
+  --bg-img: url("https://trendpartner.cz/wp-content/uploads/2018/05/cropped-Online-education.jpg")
+    center / cover no-repeat;
+  --bg-color: rgb(26, 26, 26);
+  --font-color: whitesmoke;
+  --shadow: rgba(0, 0, 0, 0.3);
+  --primary: #5868f5;
+  --hover: #6b6b6b;
+  --error: rgb(250, 60, 12);
+  --success: rgb(70, 136, 17);
+  --neutral: #9e9e9e;
+  --font-color-light: whitesmoke;
+}
