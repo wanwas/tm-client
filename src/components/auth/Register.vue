@@ -7,7 +7,8 @@
       />
     </div>
     <h2>register</h2>
-    <form action.preven="onSubmit">
+    <FormError>{{ errorMsg }}</FormError>
+    <form @submit.prevent="onSubmit">
       <div class="group-field">
         <TextInput
           class="mf"
@@ -90,12 +91,16 @@
 <script>
 import TextInput from "@/components/inputs/TextInput";
 import SubmitBtn from "@/components/buttons/SubmitBtn";
+import FormLoader from "@/components/loaders/FormLoader";
+import FormError from "@/components/errors/FormError";
 
 export default {
   name: "Login",
   components: {
     TextInput,
     SubmitBtn,
+    FormError,
+    FormLoader,
   },
   data() {
     return {
@@ -122,6 +127,7 @@ export default {
       patronymicSuc: false,
       statusSuc: false,
       formReady: false,
+      errorMsg: "",
     };
   },
   methods: {
@@ -249,7 +255,7 @@ export default {
         this.formReady = false;
       }
     },
-    onSummit() {
+    async onSummit() {
       this.loading = true;
       const user = {
         email: this.email,
@@ -259,7 +265,14 @@ export default {
         patronymic: this.patronymic,
         status: this.status,
       };
-      console.log(user);
+      await this.register(user)
+        .then(() => {
+          alert("Вы успешно зарегестрировались, войдите");
+          this.$emit("switch-form", "login");
+        })
+        .then((err) => {
+          this.errorMsg = err;
+        });
       this.loading = false;
     },
   },

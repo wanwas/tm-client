@@ -11,6 +11,7 @@
 import Login from "@/components/auth/Login";
 import Register from "@/components/auth/Register";
 import Forgot from "@/components/auth/Forgot";
+import Reset from "@/components/auth/Reset";
 
 export default {
   name: "Auth",
@@ -18,10 +19,11 @@ export default {
     Login,
     Register,
     Forgot,
+    Reset,
   },
   data() {
     return {
-      currentForm: "login",
+      currentForm: "reset",
     };
   },
   methods: {

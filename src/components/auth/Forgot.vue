@@ -7,6 +7,7 @@
       />
     </div>
     <h2>forgot</h2>
+    <FormError>{{ errorMsg }}</FormError>
     <form @submit.prevent="onSubmit">
       <TextInput
         :value="email"
@@ -29,12 +30,16 @@
 <script>
 import TextInput from "@/components/inputs/TextInput";
 import SubmitBtn from "@/components/buttons/SubmitBtn";
+import FormError from "@/components/errors/FormError";
+import FormLoader from "@/components/loaders/FormLoader";
 
 export default {
   name: "Login",
   components: {
     TextInput,
     SubmitBtn,
+    FormError,
+    FormLoader,
   },
   data() {
     return {
@@ -43,6 +48,7 @@ export default {
       emailSuc: false,
       formReady: false,
       loading: false,
+      errorMsg: "",
     };
   },
   methods: {
@@ -70,11 +76,17 @@ export default {
         this.formReady = false;
       }
     },
-  },
-  onSubmit() {
-    this.loading = true;
-    console.log(this.email);
-    this.loading = false;
+    async onSubmit() {
+      this.loading = true;
+      await this.forgot(this.email)
+        .then(() => {
+          alert("Проверьте почту");
+        })
+        .catch((err) => {
+          this.errorMsg = err;
+        });
+      this.loading = false;
+    },
   },
 };
 </script>
