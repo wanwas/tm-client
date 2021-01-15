@@ -8,18 +8,19 @@ export default {
       return new Promise((resolve, reject) => {
         const body = { ...user };
         const headers = {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         };
         axios
-          .post("http://localhost:5000/auth/login", body, {headers})
+          .post("http://localhost:5000/auth/login", body, headers)
           .then(async (response) => {
             const data = await response.data();
             ctx.commit("setUser", data);
             localStorage.setItem("token", data.token);
             resolve();
           })
-          .catch((err) => {
-            reject(err);
+          .catch(async (err) => {
+            console.log(err.message);
+            reject(err.message);
           });
       });
     },
@@ -27,15 +28,15 @@ export default {
       return new Promise((resolve, reject) => {
         const body = { ...user };
         const headers = {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         };
         axios
-          .post("http://localhost:5000/auth/register", body, { headers })
+          .post("http://localhost:5000/auth/register", body, headers)
           .then(async () => {
             resolve();
           })
           .catch((err) => {
-            reject(err);
+            reject(err.message);
           });
       });
     },
@@ -43,31 +44,32 @@ export default {
       return new Promise((resolve, reject) => {
         const body = { email };
         const headers = {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         };
         axios
-          .post("http://localhost:5000/auth/forgot", body, { headers })
+          .post("http://localhost:5000/auth/forgot", body, headers)
           .then(async () => {
             resolve();
           })
           .catch((err) => {
-            reject(err);
+            reject(err.message);
           });
       });
     },
-    reset(ctx, password) {
+    reset(ctx, data) {
       return new Promise((resolve, reject) => {
-        const body = { password };
+        const body = { ...data };
         const headers = {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          "Authorization": data.token,
         };
         axios
-          .post("http://localhost:5000/auth/reset", body, { headers })
+          .post("http://localhost:5000/auth/reset", body, headers)
           .then(async () => {
             resolve();
           })
           .catch((err) => {
-            reject(err);
+            reject(err.message);
           });
       });
     },
@@ -79,11 +81,11 @@ export default {
       return new Promise((resolve, reject) => {
         const body = { ...user };
         const headers = {
-          "Authorization": ctx.getters.getUser.token,
-          "Content-Type": "application/json"
+          Authorization: ctx.getters.getUser.token,
+          "Content-Type": "application/json",
         };
         axios
-          .patch(`http://localhost:5000/users/${user._id}`, body, { headers })
+          .patch(`http://localhost:5000/users/${user._id}`, body, headers)
           .then(async (response) => {
             const data = await response.data();
             ctx.commit("setUser", data);
@@ -91,7 +93,7 @@ export default {
             resolve();
           })
           .catch((err) => {
-            reject(err);
+            reject(err.message);
           });
       });
     },

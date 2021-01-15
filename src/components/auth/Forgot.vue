@@ -85,6 +85,7 @@ export default {
           alert("Проверьте почту");
         })
         .catch((err) => {
+          this.email = "";
           this.errorMsg = err;
         });
       this.loading = false;

@@ -257,7 +257,7 @@ export default {
         this.formReady = false;
       }
     },
-    async onSummit() {
+    async onSubmit() {
       this.loading = true;
       const user = {
         email: this.email,
@@ -273,6 +273,9 @@ export default {
           this.$emit("switch-form", "login");
         })
         .then((err) => {
+          this.email = "";
+          this.password = "";
+          this.repeatPassword = "";
           this.errorMsg = err;
         });
       this.loading = false;

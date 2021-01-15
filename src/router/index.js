@@ -9,6 +9,11 @@ const routes = [
   },
   {
     name: "Auth",
+    path: "/auth/:token",
+    component: () => import("@/views/Auth"),
+  },
+  {
+    name: "Auth",
     path: "/auth",
     component: () => import("@/views/Auth"),
   },

@@ -9,6 +9,6 @@
   color: var(--error);
   width: 100%;
   text-align: center;
-  margin: 20px 0px;
+  margin-bottom: 35px;
 }
 </style>

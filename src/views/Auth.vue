@@ -31,6 +31,11 @@ export default {
       this.currentForm = newForm;
     },
   },
+  mounted() {
+    if (this.$route.params.token) {
+      this.currentForm = 'reset';
+    }
+  },
 };
 </script>
 <style lang="scss">

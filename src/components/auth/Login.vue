@@ -113,6 +113,8 @@ export default {
           alert("Вы успешно вошли");
         })
         .catch((err) => {
+          this.email = "";
+          this.password = ""
           this.errorMsg = err;
         });
       this.loading = false;

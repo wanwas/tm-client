@@ -31,6 +31,11 @@
       <FormLoader v-if="loading" />
       <SubmitBtn v-else :label="'Изменить пароль'" :disabled="!formReady" />
     </form>
+        <div class="foot">
+      <a @click="$emit('switch-form', 'login')" class="btn-link"
+        >Back to login</a
+      >
+    </div>
   </div>
 </template>
 <script>
@@ -118,14 +123,16 @@ export default {
         this.formReady = false;
       }
     },
-    async onSummit() {
+    async onSubmit() {
       this.loading = true;
-      await this.register(this.password)
+      await this.register({password: this.password, token: this.$route.params.token})
         .then(() => {
           alert("Вы успешно изменили пароль, войдите");
           this.$emit("switch-form", "login");
         })
         .then((err) => {
+          this.password = "";
+          this.repeatPassword = "";
           this.errorMsg = err;
         });
       this.loading = false;
