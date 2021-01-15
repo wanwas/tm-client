@@ -38,6 +38,7 @@ import TextInput from "@/components/inputs/TextInput";
 import SubmitBtn from "@/components/buttons/SubmitBtn";
 import FormError from "@/components/errors/FormError";
 import FormLoader from "@/components/loaders/FormLoader";
+import { mapActions } from "vuex";
 
 export default {
   name: "Login",
@@ -61,6 +62,7 @@ export default {
     };
   },
   methods: {
+    ...mapActions(["reset"]),
     getPassword(val) {
       this.password = val;
       if (this.password === "") {
