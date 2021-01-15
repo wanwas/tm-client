@@ -7,7 +7,7 @@
       />
     </div>
     <h2>login</h2>
-    <form action.preven="onSubmit">
+    <form @submit.prevent="onSubmit">
       <TextInput
         :value="email"
         :required="true"
@@ -19,13 +19,14 @@
       <TextInput
         :value="password"
         :required="true"
-        :label="'Password'"
+        :label="'Пароль'"
         :type="'password'"
         :error="passwordErr"
         @handleChange="getPassword"
         :success="passwordSuc"
       />
-      <SubmitBtn :label="'Войти'" :disabled="!formReady" />
+      <FormLoader v-if="loading" />
+      <SubmitBtn v-else :label="'Войти'" :disabled="!formReady" />
     </form>
     <div class="foot">
       <a @click="$emit('switch-form', 'forgot')" class="btn-link">Forgot</a>
@@ -38,12 +39,14 @@
 <script>
 import TextInput from "@/components/inputs/TextInput";
 import SubmitBtn from "@/components/buttons/SubmitBtn";
+import FormLoader from "@/components/loaders/FormLoader";
 
 export default {
   name: "Login",
   components: {
     TextInput,
     SubmitBtn,
+    FormLoader,
   },
   data() {
     return {
@@ -54,6 +57,7 @@ export default {
       emailSuc: false,
       passwordSuc: false,
       formReady: false,
+      loading: false,
     };
   },
   methods: {
@@ -91,6 +95,15 @@ export default {
       } else {
         this.formReady = false;
       }
+    },
+    onSubmit() {
+      this.loading = true;
+      const user = {
+        email: this.email,
+        password: this.password,
+      };
+      console.log(user);
+      this.loading = false;
     },
   },
 };

@@ -58,7 +58,14 @@ export default {
   padding: 30px;
   background: var(--bg-color);
   width: 500px;
-  transition: all 0.3s;
+  transition: all 0.5s;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
 }
 @media screen and (max-width: 500px) {
   .component {
@@ -83,6 +90,7 @@ export default {
     color: car(--font-color);
   }
   form {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
