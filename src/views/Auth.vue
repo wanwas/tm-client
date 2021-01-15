@@ -23,7 +23,7 @@ export default {
   },
   data() {
     return {
-      currentForm: "reset",
+      currentForm: "login",
     };
   },
   methods: {

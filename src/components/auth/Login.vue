@@ -62,6 +62,7 @@ export default {
       passwordSuc: false,
       formReady: false,
       loading: false,
+      errorMsg: ""
     };
   },
   methods: {
