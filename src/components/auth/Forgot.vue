@@ -83,9 +83,11 @@ export default {
       await this.forgot(this.email)
         .then(() => {
           alert("Проверьте почту");
+          this.$router.push('/auth')
         })
         .catch((err) => {
           this.email = "";
+          this.emailSuc = false;
           this.errorMsg = err;
         });
       this.loading = false;

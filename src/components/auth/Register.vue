@@ -272,12 +272,15 @@ export default {
           alert("Вы успешно зарегестрировались, войдите");
           this.$emit("switch-form", "login");
         })
-        .then((err) => {
+        .catch((err) => {
           this.email = "";
           this.password = "";
           this.repeatPassword = "";
+          this.emailSuc = false;
+          this.passwordSuc = false;
+          this.repeatPasswordSuc = false;
           this.errorMsg = err;
-        });
+        }); 
       this.loading = false;
     },
   },

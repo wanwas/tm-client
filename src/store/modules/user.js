@@ -1,75 +1,81 @@
-import axios from "axios";
+import { requestToApi } from "@/utils";
 export default {
   state: {
     user: {},
   },
   actions: {
     login(ctx, user) {
-      return new Promise((resolve, reject) => {
-        const body = { ...user };
-        const headers = {
+      const options = {
+        method: "POST",
+        headers: {
           "Content-Type": "application/json",
-        };
-        axios
-          .post("http://localhost:5000/auth/login", body, headers)
-          .then(async (response) => {
-            const data = await response.data();
+        },
+        body: JSON.stringify(user),
+      };
+      return new Promise((resolve, reject) => {
+        requestToApi("http://localhost:5000/auth/login", options)
+          .then((data) => {
             ctx.commit("setUser", data);
             localStorage.setItem("token", data.token);
             resolve();
           })
-          .catch(async (err) => {
-            console.log(err.message);
-            reject(err.message);
+          .catch((error) => {
+            reject(error);
           });
       });
     },
     register(ctx, user) {
-      return new Promise((resolve, reject) => {
-        const body = { ...user };
-        const headers = {
+      const options = {
+        method: "POST",
+        headers: {
           "Content-Type": "application/json",
-        };
-        axios
-          .post("http://localhost:5000/auth/register", body, headers)
-          .then(async () => {
+        },
+        body: JSON.stringify(user),
+      };
+      return new Promise((resolve, reject) => {
+        requestToApi("http://localhost:5000/auth/register", options)
+          .then(() => {
             resolve();
           })
-          .catch((err) => {
-            reject(err.message);
+          .catch((error) => {
+            reject(error);
           });
       });
     },
     forgot(ctx, email) {
-      return new Promise((resolve, reject) => {
-        const body = { email };
-        const headers = {
+      const data = { email };
+      const options = {
+        method: "POST",
+        headers: {
           "Content-Type": "application/json",
-        };
-        axios
-          .post("http://localhost:5000/auth/forgot", body, headers)
-          .then(async () => {
+        },
+        body: JSON.stringify(data),
+      };
+      return new Promise((resolve, reject) => {
+        requestToApi("http://localhost:5000/auth/forgot", options)
+          .then(() => {
             resolve();
           })
-          .catch((err) => {
-            reject(err.message);
+          .catch((error) => {
+            reject(error);
           });
       });
     },
     reset(ctx, data) {
-      return new Promise((resolve, reject) => {
-        const body = { ...data };
-        const headers = {
+      const options = {
+        method: "POST",
+        headers: {
           "Content-Type": "application/json",
-          "Authorization": data.token,
-        };
-        axios
-          .post("http://localhost:5000/auth/reset", body, headers)
-          .then(async () => {
+        },
+        body: JSON.stringify(data),
+      };
+      return new Promise((resolve, reject) => {
+        requestToApi("http://localhost:5000/auth/reset", options)
+          .then(() => {
             resolve();
           })
-          .catch((err) => {
-            reject(err.message);
+          .catch((error) => {
+            reject(error);
           });
       });
     },
@@ -78,22 +84,23 @@ export default {
       localStorage.removeItem("token");
     },
     updateProfile(ctx, user) {
-      return new Promise((resolve, reject) => {
-        const body = { ...user };
-        const headers = {
-          Authorization: ctx.getters.getUser.token,
+      const options = {
+        method: "POST",
+        headers: {
           "Content-Type": "application/json",
-        };
-        axios
-          .patch(`http://localhost:5000/users/${user._id}`, body, headers)
-          .then(async (response) => {
-            const data = await response.data();
+          Authorization: ctx.getters.getUser.token,
+        },
+        body: JSON.stringify(user),
+      };
+      return new Promise((resolve, reject) => {
+        requestToApi(`http://localhost:5000/users/${user._id}`, options)
+          .then((data) => {
             ctx.commit("setUser", data);
             localStorage.setItem("token", data.token);
             resolve();
           })
-          .catch((err) => {
-            reject(err.message);
+          .catch((error) => {
+            reject(error);
           });
       });
     },

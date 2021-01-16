@@ -8,7 +8,7 @@ const routes = [
     component: Home,
   },
   {
-    name: "Auth",
+    name: "Reset",
     path: "/auth/:token",
     component: () => import("@/views/Auth"),
   },

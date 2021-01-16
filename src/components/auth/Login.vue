@@ -62,7 +62,7 @@ export default {
       passwordSuc: false,
       formReady: false,
       loading: false,
-      errorMsg: ""
+      errorMsg: "",
     };
   },
   methods: {
@@ -114,7 +114,9 @@ export default {
         })
         .catch((err) => {
           this.email = "";
-          this.password = ""
+          this.password = "";
+          this.emailSuc = false;
+          this.passwordSuc = false;
           this.errorMsg = err;
         });
       this.loading = false;
