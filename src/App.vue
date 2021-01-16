@@ -14,6 +14,8 @@ export default {
       currentTheme: "getTheme",
     }),
   },
+  data() {
+  },
 };
 </script>
 
