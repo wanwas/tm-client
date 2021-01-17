@@ -109,9 +109,7 @@ export default {
         password: this.password,
       };
       await this.login(user)
-        .then(() => {
-          alert("Вы успешно вошли");
-        })
+        .then(() => {})
         .catch((err) => {
           this.email = "";
           this.password = "";

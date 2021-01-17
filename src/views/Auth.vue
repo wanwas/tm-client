@@ -1,6 +1,11 @@
 <template>
   <div class="content">
+    <ModalMessage v-show="isModalVisible" @close="closeModal">
+      <h3 name="header">{{modal.title}}</h3> 
+      <p name="body">{{modal.message}}</p>
+    </ModalMessage>
     <component
+      @show-modal="showModal"
       class="component"
       :is="currentForm"
       @switch-form="switchForm"
@@ -12,6 +17,7 @@ import Login from "@/components/auth/Login";
 import Register from "@/components/auth/Register";
 import Forgot from "@/components/auth/Forgot";
 import Reset from "@/components/auth/Reset";
+import ModalMessage from "@/components/messages/ModalMessage"
 
 export default {
   name: "Auth",
@@ -20,16 +26,30 @@ export default {
     Register,
     Forgot,
     Reset,
+    ModalMessage
   },
   data() {
     return {
       currentForm: "login",
+      isModalVisible: false,
+      modal: {
+        title: '',
+        message: ''
+      }
     };
   },
   methods: {
     switchForm(newForm) {
       this.currentForm = newForm;
     },
+    closeModal(obj) {
+      this.modal = obj;
+      this.isModalVisible = false;
+    },
+    showModal(obj) {
+      this.modal = obj;
+      this.isModalVisible = true;
+    }
   },
   mounted() {
     if (this.$route.params.token) {

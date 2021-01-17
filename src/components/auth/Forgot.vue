@@ -82,8 +82,12 @@ export default {
       this.loading = true;
       await this.forgot(this.email)
         .then(() => {
-          alert("Проверьте почту");
-          this.$router.push('/auth')
+          this.$emit("show-modal", {
+            title: "Восстановление доступа",
+            message:
+              "Письмо с ссылкой для восстоновления отправлено на Вашу почту. Не забудьте проверить папку спам.",
+          });
+          this.$router.push("/auth");
         })
         .catch((err) => {
           this.email = "";

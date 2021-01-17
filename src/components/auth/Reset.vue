@@ -130,7 +130,11 @@ export default {
         token: this.$route.params.token,
       })
         .then(() => {
-          alert("Вы успешно изменили пароль, войдите");
+          this.$emit("show-modal", {
+            title: "Восстановление доступа",
+            message:
+              "Пароль успешно изменен, теперь Вам необходимо войти в свой аккаунта.",
+          });
           this.$emit("switch-form", "login");
         })
         .then((err) => {

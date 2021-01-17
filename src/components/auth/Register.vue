@@ -269,7 +269,11 @@ export default {
       };
       await this.register(user)
         .then(() => {
-          alert("Вы успешно зарегестрировались, войдите");
+          this.$emit("show-modal", {
+            title: "Регистрация",
+            message:
+              "Регистрация прошла успешно, теперь Вам необходимо войти в свой аккаунта.",
+          });
           this.$emit("switch-form", "login");
         })
         .catch((err) => {
@@ -280,7 +284,7 @@ export default {
           this.passwordSuc = false;
           this.repeatPasswordSuc = false;
           this.errorMsg = err;
-        }); 
+        });
       this.loading = false;
     },
   },

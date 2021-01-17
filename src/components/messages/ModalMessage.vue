@@ -4,16 +4,12 @@
       <div class="modal-wrapper">
         <div class="modal-container">
           <div class="modal-header">
-            <h3>
               <slot name="header">
-                Авторизация
               </slot>
-            </h3>
           </div>
 
           <div class="modal-body">
             <slot name="body">
-              вы успешно зарегестрировались, войдите
             </slot>
           </div>
 
