@@ -1,6 +1,6 @@
 export default {
   state: {
-    theme: "dark",
+    theme: "light",
   },
   actions: {},
   mutations: {
