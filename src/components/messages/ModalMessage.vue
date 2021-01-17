@@ -4,35 +4,25 @@
       <div class="modal-wrapper">
         <div class="modal-container">
           <div class="modal-header">
-              <slot name="header">
-              </slot>
+            <h3>
+              <slot name="header"> </slot>
+            </h3>
           </div>
 
           <div class="modal-body">
-            <slot name="body">
-            </slot>
+            <p><slot name="body"> </slot></p>
           </div>
 
           <div class="modal-footer">
-            <SubmitBtn
+            <button
               class="modal-default-button"
-              :label="'OK'"
-              @click="$emit('close')"
-            />
+              @click="$emit('close-modal')">OK</button>
           </div>
         </div>
       </div>
     </div>
   </transition>
 </template>
-<script>
-import SubmitBtn from "@/components/buttons/SubmitBtn";
-export default {
-  components: {
-    SubmitBtn,
-  },
-};
-</script>
 <style lang="scss">
 .modal-mask {
   position: fixed;
@@ -61,6 +51,32 @@ export default {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
   transition: all 0.3s ease;
   color: var(--font-color);
+}
+.modal-default-button {
+        padding: 10px 40px;
+        font-size: 18px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        outline: none;
+        border: none;
+        border-radius: 2px;
+        box-shadow: 0px 0px 3px var(--shadow);
+        background: var(--primary);
+        margin-bottom: 15px;
+        color: var(--font-color-light);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform .2s;
+        &:hover {
+            filter: brightness(1.1);
+        }
+        &:active {
+            transform: scale(0.95);
+        }
+        &:disabled {
+            filter: brightness(0.7);
+        }
 }
 
 @media screen and (max-width: 600px) {

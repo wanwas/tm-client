@@ -1,8 +1,10 @@
 <template>
   <div class="content">
-    <ModalMessage v-show="isModalVisible" @close="closeModal">
-      <h3 name="header">{{modal.title}}</h3> 
-      <p name="body">{{modal.message}}</p>
+    <ModalMessage v-show="isModalVisible" @close-modal="closeModal">
+      <template v-slot:header>
+        {{ modal.title }}
+      </template>
+      <template v-slot:body>{{ modal.message }}</template>
     </ModalMessage>
     <component
       @show-modal="showModal"
@@ -17,7 +19,7 @@ import Login from "@/components/auth/Login";
 import Register from "@/components/auth/Register";
 import Forgot from "@/components/auth/Forgot";
 import Reset from "@/components/auth/Reset";
-import ModalMessage from "@/components/messages/ModalMessage"
+import ModalMessage from "@/components/messages/ModalMessage";
 
 export default {
   name: "Auth",
@@ -26,34 +28,34 @@ export default {
     Register,
     Forgot,
     Reset,
-    ModalMessage
+    ModalMessage,
   },
   data() {
     return {
       currentForm: "login",
       isModalVisible: false,
       modal: {
-        title: '',
-        message: ''
-      }
+        title: "",
+        message: "",
+      },
     };
   },
   methods: {
     switchForm(newForm) {
       this.currentForm = newForm;
     },
-    closeModal(obj) {
-      this.modal = obj;
+    closeModal() {
+      console.log(1);
       this.isModalVisible = false;
     },
     showModal(obj) {
       this.modal = obj;
       this.isModalVisible = true;
-    }
+    },
   },
   mounted() {
     if (this.$route.params.token) {
-      this.currentForm = 'reset';
+      this.currentForm = "reset";
     }
   },
 };

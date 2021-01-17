@@ -87,7 +87,7 @@ export default {
             message:
               "Письмо с ссылкой для восстоновления отправлено на Вашу почту. Не забудьте проверить папку спам.",
           });
-          this.$router.push("/auth");
+          this.$emit("switch-form", "login");
         })
         .catch((err) => {
           this.email = "";

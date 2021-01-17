@@ -109,7 +109,9 @@ export default {
         password: this.password,
       };
       await this.login(user)
-        .then(() => {})
+        .then(() => {
+          this.$router.push("/task");
+        })
         .catch((err) => {
           this.email = "";
           this.password = "";
