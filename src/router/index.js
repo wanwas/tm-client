@@ -11,6 +11,18 @@ const routes = [
     name: "Main",
     path: "/main",
     component: () => import("@/views/Main"),
+    children: [
+      {
+        name: "Tasks",
+        path: "tasks",
+        component: ()=>import("@/components/main/Tasks")
+      },
+      {
+        name: "Profile",
+        path: "profile",
+        component: ()=>import("@/components/main/Profile")
+      }
+    ]
   },
   {
     name: "Reset",
