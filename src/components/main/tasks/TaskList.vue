@@ -3,3 +3,8 @@
 
     </div>
 </template>
+<style lang="scss" scoped>
+    .tasks-list {
+        height: max-content;
+    }
+</style>
