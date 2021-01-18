@@ -8,6 +8,11 @@ const routes = [
     component: Home,
   },
   {
+    name: "Main",
+    path: "/main",
+    component: () => import("@/views/Main"),
+  },
+  {
     name: "Reset",
     path: "/auth/:token",
     component: () => import("@/views/Auth"),

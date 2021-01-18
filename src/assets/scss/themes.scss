@@ -3,6 +3,7 @@
     center / cover no-repeat;
   --bg-color: #ffffff;
   --font-color: #000000;
+  --font-color-inverse: whitesmoke;
   --shadow: rgba(0, 0, 0, 0.3);
   --primary: #39a3fa;
   --hover: #eeeeee;
@@ -10,6 +11,8 @@
   --error: rgb(250, 76, 33);
   --success: rgb(11, 175, 6);
   --font-color-light: whitesmoke;
+  --darken: rgba(0, 0, 0, 0.1);
+  --lighten: rgba(255,255,255,0.1);
 }
 
 .dark {
@@ -17,6 +20,7 @@
     center / cover no-repeat;
   --bg-color: rgb(26, 26, 26);
   --font-color: whitesmoke;
+  --font-color-inverse: black;
   --shadow: rgba(0, 0, 0, 0.3);
   --primary: #5868f5;
   --hover: #6b6b6b;

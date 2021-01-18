@@ -110,7 +110,7 @@ export default {
       };
       await this.login(user)
         .then(() => {
-          this.$router.push("/task");
+          this.$router.push("/main");
         })
         .catch((err) => {
           this.email = "";

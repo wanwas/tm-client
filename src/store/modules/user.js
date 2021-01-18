@@ -1,4 +1,5 @@
 import { requestToApi } from "@/utils";
+import router from '@/router/'
 export default {
   state: {
     user: {},
@@ -82,6 +83,7 @@ export default {
     logout(ctx) {
       ctx.commit("setUser", {});
       localStorage.removeItem("token");
+      router.push('/auth')
     },
     updateProfile(ctx, user) {
       const options = {
