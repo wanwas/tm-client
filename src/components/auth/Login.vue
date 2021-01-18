@@ -107,7 +107,7 @@ export default {
       };
       await this.login(user)
         .then(() => {
-          this.$router.push("/main");
+          this.$router.push("/main/tasks");
         })
         .catch((err) => {
           this.email = "";
