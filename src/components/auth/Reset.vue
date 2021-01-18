@@ -32,9 +32,7 @@
       <SubmitBtn v-else :label="'Изменить пароль'" :disabled="!formReady" />
     </form>
     <div class="foot">
-      <a @click="$emit('switch-form', 'login')" class="btn-link"
-        >Back to login</a
-      >
+      <a @click="$emit('switch-form', 'login')" class="btn-link">Назад</a>
     </div>
   </div>
 </template>
@@ -137,7 +135,7 @@ export default {
           });
           this.$emit("switch-form", "login");
         })
-        .then((err) => {
+        .catch((err) => {
           this.password = "";
           this.repeatPassword = "";
           this.passwordSuc = false;

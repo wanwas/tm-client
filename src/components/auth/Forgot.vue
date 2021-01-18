@@ -1,12 +1,7 @@
 <template>
   <div class="main">
-    <div class="head">
-      <img
-        src="https://img.icons8.com/ios/50/000000/forgot-password.png"
-        class="logo"
-      />
-    </div>
-    <h2>forgot</h2>
+    <div class="head"></div>
+    <h2>Восстановление доступа</h2>
     <FormError>{{ errorMsg }}</FormError>
     <form @submit.prevent="onSubmit">
       <TextInput
@@ -21,9 +16,7 @@
       <SubmitBtn v-else :label="'Отправить письмо'" :disabled="!formReady" />
     </form>
     <div class="foot">
-      <a @click="$emit('switch-form', 'login')" class="btn-link"
-        >Back to login</a
-      >
+      <a @click="$emit('switch-form', 'login')" class="btn-link">назад</a>
     </div>
   </div>
 </template>

@@ -1,12 +1,7 @@
 <template>
   <div class="main">
-    <div class="head">
-      <img
-        src="https://img.icons8.com/ios/50/000000/add-user-male.png"
-        class="logo"
-      />
-    </div>
-    <h2>register</h2>
+    <div class="head"></div>
+    <h2>Регистрация</h2>
     <FormError>{{ errorMsg }}</FormError>
     <form @submit.prevent="onSubmit">
       <div class="group-field">
@@ -82,9 +77,7 @@
       <SubmitBtn v-else :label="'Регистрация'" :disabled="!formReady" />
     </form>
     <div class="foot">
-      <a @click="$emit('switch-form', 'login')" class="btn-link"
-        >Back to login</a
-      >
+      <a @click="$emit('switch-form', 'login')" class="btn-link">назад</a>
     </div>
   </div>
 </template>
@@ -181,14 +174,22 @@ export default {
       }
       this.checkFormReady();
     },
+    isValidStr(str) {
+      return /[~`!#$%^&*+=\-[\]\\';,/{}|\\":<>?0-9]/g.test(str);
+    },
     getName(val) {
       this.name = val;
       if (this.name === "") {
         this.nameErr = "Это обязательное поле";
         this.nameSuc = false;
       } else {
-        this.nameErr = "";
-        this.nameSuc = true;
+        if (this.isValidStr(this.name)) {
+          this.nameErr = "Поле не должно содержать цифры или спецсимволы";
+          this.nameSuc = false;
+        } else {
+          this.nameErr = "";
+          this.nameSuc = true;
+        }
       }
       this.checkFormReady();
     },
@@ -198,8 +199,13 @@ export default {
         this.surnameErr = "Это обязательное поле";
         this.surnameSuc = false;
       } else {
-        this.surnameErr = "";
-        this.surnameSuc = true;
+        if (this.isValidStr(this.surname)) {
+          this.surnameErr = "Поле не должно содержать цифры или спецсимволы";
+          this.surnameSuc = false;
+        } else {
+          this.surnameErr = "";
+          this.surnameSuc = true;
+        }
       }
       this.checkFormReady();
     },
@@ -209,8 +215,13 @@ export default {
         this.patronymicErr = "Это обязательное поле";
         this.patronymicSuc = false;
       } else {
-        this.patronymicErr = "";
-        this.patronymicSuc = true;
+        if (this.isValidStr(this.patronymic)) {
+          this.patronymicErr = "Поле не должно содержать цифры или спецсимволы";
+          this.patronymicSuc = false;
+        } else {
+          this.patronymicErr = "";
+          this.patronymicSuc = true;
+        }
       }
       this.checkFormReady();
     },
@@ -220,8 +231,13 @@ export default {
         this.statusErr = "Это обязательное поле";
         this.statusSuc = false;
       } else {
-        this.statusErr = "";
-        this.statusSuc = true;
+        if (this.isValidStr(this.status)) {
+          this.statusErr = "Поле не должно содержать цифры или спецсимволы";
+          this.statusSuc = false;
+        } else {
+          this.statusErr = "";
+          this.statusSuc = true;
+        }
       }
       this.checkFormReady();
     },

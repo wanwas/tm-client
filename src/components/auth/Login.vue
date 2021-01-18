@@ -1,12 +1,7 @@
 <template>
   <div class="main">
-    <div class="head">
-      <img
-        src="https://img.icons8.com/ios/50/000000/user--v1.png"
-        class="logo"
-      />
-    </div>
-    <h2>login</h2>
+    <div class="head"></div>
+    <h2>Вход</h2>
     <FormError>{{ errorMsg }}</FormError>
     <form @submit.prevent="onSubmit">
       <TextInput
@@ -30,9 +25,11 @@
       <SubmitBtn v-else :label="'Войти'" :disabled="!formReady" />
     </form>
     <div class="foot">
-      <a @click="$emit('switch-form', 'forgot')" class="btn-link">Forgot</a>
+      <a @click="$emit('switch-form', 'forgot')" class="btn-link"
+        >Забыли пароль?</a
+      >
       <a @click="$emit('switch-form', 'register')" class="btn-link"
-        >Don't have account?</a
+        >Регистрация</a
       >
     </div>
   </div>
