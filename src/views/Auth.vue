@@ -77,7 +77,7 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.7);
   z-index: 2;
 }
 .component {
@@ -116,7 +116,7 @@ export default {
     width: 100%;
     text-align: center;
     margin-bottom: 30px;
-    color: car(--font-color);
+    color: car(--font);
   }
   form {
     width: 100%;
@@ -133,7 +133,7 @@ export default {
 }
 .btn-link {
   cursor: pointer;
-  color: var(--font-color);
+  color: var(--font);
   text-transform: uppercase;
   padding: 10px;
   text-align: center;
@@ -145,9 +145,12 @@ export default {
     color: var(--primary);
   }
   &:active {
-    background-color: var(--hover);
+    background-color: var(--darken);
     background-size: 100%;
     transition: background 0s;
   }
+}
+.foot {
+  margin-top: 15px;
 }
 </style>

@@ -50,7 +50,7 @@
   border-radius: 2px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
   transition: all 0.3s ease;
-  color: var(--font-color);
+  color: var(--font);
 }
 .modal-default-button {
         padding: 10px 40px;
@@ -63,7 +63,7 @@
         box-shadow: 0px 0px 3px var(--shadow);
         background: var(--primary);
         margin-bottom: 15px;
-        color: var(--font-color-light);
+        color: var(--font-inv);
         display: flex;
         align-items: center;
         justify-content: center;

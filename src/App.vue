@@ -26,6 +26,6 @@ export default {
   font-family: sans-serif;
   margin: 0;
   padding: 0;
-  color: var(--font-color);
+  color: var(--font);
 }
 </style>

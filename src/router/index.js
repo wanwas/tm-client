@@ -11,27 +11,10 @@ const routes = [
     name: "Main",
     path: "/main",
     meta: {
-      auth: true
+      auth: true,
     },
     component: () => import("@/views/Main"),
-    children: [
-      {
-        name: "Tasks",
-        path: "tasks",
-        component: () => import("@/components/main/Tasks"),
-        meta: {
-          auth: true
-        },
-      },
-      {
-        name: "Profile",
-        path: "profile",
-        component: () => import("@/components/main/Profile"),
-        meta: {
-          auth: true
-        },
-      },
-    ],
+    children: [],
   },
   {
     name: "Reset",

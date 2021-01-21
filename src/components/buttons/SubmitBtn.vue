@@ -34,8 +34,7 @@ export default {
   border-radius: 2px;
   box-shadow: 0px 0px 3px var(--shadow);
   background: var(--primary);
-  margin-bottom: 15px;
-  color: var(--font-color-light);
+  color: var(--font-inv);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -47,7 +46,7 @@ export default {
     transform: scale(0.95);
   }
   &:disabled {
-    filter: brightness(0.7);
+    filter: brightness(0.8);
   }
 }
 img {

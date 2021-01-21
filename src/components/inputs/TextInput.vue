@@ -68,9 +68,9 @@ input {
   display: block;
   width: 100%;
   border: none;
-  border-bottom: 1px solid var(--neutral);
+  border-bottom: 1px solid var(--font);
   background: var(--bg-color);
-  color: var(--font-color);
+  color: var(--font);
 }
 input:focus {
   outline: none;

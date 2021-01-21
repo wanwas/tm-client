@@ -1,30 +1,16 @@
 <template>
-  <div class="wrapper">
-    <Header />
-    <div class="wrapper-content">
-      <router-view></router-view>
-    </div>
-  </div>
+  <div class="wrapper"></div>
 </template>
 <script>
-import Header from "@/components/main/Header";
-import { mapGetters } from "vuex";
-
 export default {
-  components: {
-    Header,
-  },
-  computed: {
-    ...mapGetters({
-      user: "getUser",
-    }),
-  },
+  components: {},
+  computed: {},
 };
 </script>
 <style lang="scss" scoped>
-  .wrapper-content {
-    width: 100vw;
-    height: calc(100vh - 100px);
-    background: var(--bg-color);
-  }
+.wrapper-content {
+  width: 100vw;
+  height: calc(100vh - 100px);
+  background:red; //var(--bg-color);
+}
 </style>
