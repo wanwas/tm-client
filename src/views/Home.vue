@@ -75,6 +75,7 @@ p {
   color: var(--font-inv);
   letter-spacing: 1px;
   font-weight: 200;
+  font-size: 18aspx;
   text-align: center;
   width: 400px;
 }
@@ -83,12 +84,12 @@ p {
   text-align: center;
 }
 @media screen and (max-width: 400px) {
-    .container-main {
-        width: 100%;
-    }
-    p {
-        width: 100%;
-    }
+  .container-main {
+    width: 100%;
+  }
+  p {
+    width: 100%;
+  }
 }
 .link {
   margin-top: 20px;

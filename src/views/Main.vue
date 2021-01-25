@@ -4,7 +4,7 @@
       <Header />
     </div>
     <div class="wrapper-content">
-        <router-view></router-view>
+      <router-view></router-view>
     </div>
   </div>
 </template>

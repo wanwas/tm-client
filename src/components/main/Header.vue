@@ -14,7 +14,7 @@
     <div class="header-menu">
       <router-link
         tag="a"
-        to="/main/tasks/all"
+        to="/main/tasks/"
         class="menu-item"
         title="список задач"
       >
@@ -24,7 +24,7 @@
         class="menu-item"
         title="профиль"
         tag="a"
-        to="/main/profile/info"
+        to="/main/profile/"
       >
         <img
           src="https://img.icons8.com/ios/50/ffffff/administrator-male--v1.png"
@@ -32,7 +32,7 @@
       </router-link>
       <router-link
         tag="a"
-        to="/main/settings/major"
+        to="/main/settings/"
         class="menu-item"
         title="настройки"
       >

@@ -6,17 +6,17 @@
           {
             title: 'Все задачи',
             src: 'https://img.icons8.com/ios/50/ffffff/exterior.png',
-            to: '/main/tasks/all'
+            to: '/main/tasks/all',
           },
           {
             title: 'Сегодня',
             src: 'https://img.icons8.com/ios/50/ffffff/sun.png',
-            to: '/main/tasks/today'
+            to: '/main/tasks/today',
           },
           {
             title: 'Календарь',
             src: 'https://img.icons8.com/ios/50/ffffff/calendar--v1.png',
-            to: '/main/tasks/calendar'
+            to: '/main/tasks/calendar',
           },
         ]"
       />

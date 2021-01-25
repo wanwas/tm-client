@@ -45,7 +45,6 @@ export default {
       this.currentForm = newForm;
     },
     closeModal() {
-      console.log(1);
       this.isModalVisible = false;
     },
     showModal(obj) {
