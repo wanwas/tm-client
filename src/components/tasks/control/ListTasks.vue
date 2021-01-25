@@ -30,7 +30,7 @@
       </div>
     </div>
     <transition name="slide-fade">
-      <div class="active-task" v-if="selectedTask !== null">
+      <div class="active-task" v-if="selectedTask != null">
         <ActiveTask @close-task="closeTask" :item="selectedTask" />
       </div>
     </transition>
@@ -61,9 +61,6 @@ export default {
     closeTask() {
       this.selectedTask = null;
     },
-  },
-  mounted() {
-    this.showTask(1);
   },
   computed: {
     ...mapGetters({

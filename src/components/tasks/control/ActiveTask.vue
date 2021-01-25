@@ -107,7 +107,7 @@ export default {
           return false;
         }
         const subtask = {
-          id: this.newTask.subtasks.length + 1,
+          id: this.newTask.subtasks.length + 1 + 's',
           subtask: this.$refs.subtask.value,
           completed: false,
         };

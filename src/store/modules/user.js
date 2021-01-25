@@ -83,6 +83,7 @@ export default {
     logout(ctx) {
       ctx.commit("setUser", {});
       localStorage.removeItem("token");
+      localStorage.removeItem("state");
       router.push("/auth");
     },
     updateProfile(ctx, user) {
