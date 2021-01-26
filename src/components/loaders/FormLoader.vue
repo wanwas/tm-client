@@ -8,7 +8,7 @@
   border-radius: 50%;
   margin-bottom: 15px;
   margin-top: 2px;
-  border: 0.3rem solid var(--hover);
+  border: 0.3rem solid var(--border);
   border-top-color: var(--primary);
   animation: 1.5s spin infinite linear;
 }
